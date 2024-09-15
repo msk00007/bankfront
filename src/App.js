@@ -23,7 +23,7 @@ function App() {
     acctype: "", // Account Type (e.g., Current, Savings)
     dob: "", // Date of Birth
     address: "", // Address
-    mbno: "", // Mobile Number
+    mobileno: "", // Mobile Number
     email: "", // Email Address
     idproof: "", // ID Proof
     balance: 0, // Balance

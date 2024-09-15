@@ -35,19 +35,19 @@ const CustomerDashboard = ({ customer, setCustomer }) => {
             acctype: customerResponse.data.acctype, // Account Type (e.g., Current, Savings)
             dob: customerResponse.data.dob, // Date of Birth
             address: customerResponse.data.address, // Address
-            mbno: customerResponse.data.mbno, // Mobile Number
+            mbno: customerResponse.data.mobileno, // Mobile Number
             // Email Address
             idproof: customerResponse.data.idproof, // ID Proof
             // Balance
           });
         }
 
-        const recordsUrl = `/customer/records/${customerResponse.data.accno}?page=0&size=10&sort=date,desc&sort=tid,desc`;
+        const recordsUrl = `/allrecords/${customer.accno}`;
         console.log("Fetching records from URL:", recordsUrl);
         const recordsResponse = await axios.get(recordsUrl);
 
         console.log("Records Response:", recordsResponse.data);
-        setRecords(recordsResponse.data.content);
+        setRecords(recordsResponse.data);
 
         // Set the flag to true to indicate that data has been fetched
         setIsDataFetched(true);
@@ -187,9 +187,9 @@ const CustomerDashboard = ({ customer, setCustomer }) => {
       {records.map((record) => (
         <tr key={record.tid}>
           <td>{record.tid}</td>
-          <td>{record.recType === 2 ? "Withdraw" : "Deposit"}</td>
+          <td>{record.recType === 1 ? "Withdraw" : "Deposit"}</td>
           <td>{record.amount}</td>
-          <td>{record.date}</td>
+          <td>{record.time}</td>
         </tr>
       ))}
     </tbody>

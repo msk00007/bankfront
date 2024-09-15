@@ -11,7 +11,7 @@ const EditCustomer = () => {
     acctype: "",
     dob: "",
     address: "",
-    mbno: "",
+    mobileno: "",
     idproof: "",
   });
   const [loading, setLoading] = useState(true);
@@ -47,7 +47,7 @@ const EditCustomer = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`/customer/${accno}`, customer);
+      await axios.put(`/customer`, customer);
       alert("Customer updated successfully");
       navigate("/adminDashboard"); // Redirect back to the admin dashboard after successful update
     } catch (err) {
@@ -69,6 +69,18 @@ const EditCustomer = () => {
     <div className="edit-customer-container">
       <h2>Edit Customer: {customer.name}</h2>
       <form onSubmit={handleSubmit} className="edit-customer-form">
+      <div className="form-group">
+          <label htmlFor="name">Acc no:</label>
+          <input
+            type="text"
+            id="accno"
+            name="accno"
+            value={customer.accno}
+            onChange={handleInputChange}
+            readOnly
+          />
+        </div>
+
         <div className="form-group">
           <label htmlFor="name">Name:</label>
           <input
@@ -135,7 +147,7 @@ const EditCustomer = () => {
             required
           />
         </div> */}
-        {/* <div className="form-group">
+        <div className="form-group">
           <label htmlFor="idproof">ID Proof:</label>
           <input
             type="text"
@@ -145,7 +157,7 @@ const EditCustomer = () => {
             onChange={handleInputChange}
             required
           />
-        </div> */}
+        </div>
 
         <button type="submit">Save Changes</button>
       </form>

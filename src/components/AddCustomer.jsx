@@ -11,7 +11,7 @@ const AddCustomer = () => {
     balance:"1000",
     dob: "",
     address: "",
-    mbno: "",
+    mobileno: "",
     email: "",
     idproof: "",
   });
@@ -35,7 +35,7 @@ const AddCustomer = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/customer", customerData); // Adjust API endpoint if needed
+      const response = await axios.post("/savecustomer", customerData); // Adjust API endpoint if needed
       if (response.status === 200) {
         alert("Customer added successfully!");
         navigate("/adminDashboard"); // Redirect to admin dashboard or any page after successful submission
@@ -132,12 +132,12 @@ const AddCustomer = () => {
 
         <div className="form-row">
           <div className="form-field">
-            <label htmlFor="mbno">Mobile Number</label>
+            <label htmlFor="mobileno">Mobile Number</label>
             <input
               type="text"
-              id="mbno"
-              name="mbno"
-              value={customerData.mbno}
+              id="mobileno"
+              name="mobileno"
+              value={customerData.mobileno}
               onChange={handleChange}
               required
             />

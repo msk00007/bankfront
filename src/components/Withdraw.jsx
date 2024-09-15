@@ -22,7 +22,7 @@ const Withdraw = ({ customer, setCustomer }) => {
     try {
       // Make API request to update the customer's balance on the server
       const response = await axios.post(`/record/${customer.accno}`, {
-        recType: 2,
+        recType: 1,
         amount: withdrawAmount,
         date: date,
       }, {
@@ -76,19 +76,6 @@ const Withdraw = ({ customer, setCustomer }) => {
           />
         </div>
 
-        {/* Input field for the date */}
-        <div className="form-group">
-          <label className="form-label" htmlFor="date">Date of Withdrawal:</label>
-          <input
-            type="date"
-            id="date"
-            name="date"
-            className="form-input"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            required
-          />
-        </div>
         
         {/* Submit button */}
         <button type="submit" className="withdraw-button">Withdraw</button>

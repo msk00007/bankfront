@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "../css/AdminDashboard.css"; // Import the CSS file
 
 const AdminDashboard = () => {
+  const [admin,setAdmin]=useState([]);
   const [customers, setCustomers] = useState([]);
   const [isDataFetched, setIsDataFetched] = useState(false); // Flag to prevent infinite calls
   const navigate = useNavigate();
@@ -74,7 +75,7 @@ const AdminDashboard = () => {
                   <td>{customer.accno}</td>
                   <td>{customer.name}</td>
                   <td>{customer.email}</td>
-                  <td>{customer.mbno}</td>
+                  <td>{customer.mobileno}</td>
                   <td>{customer.idproof}</td>
                   <td>{customer.dob}</td>
                   <td>{customer.address}</td>

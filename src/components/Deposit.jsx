@@ -20,7 +20,7 @@ const Deposit = ({ customer, setCustomer }) => {
     try {
       // Make API request to update the customer's balance on the server
       const response = await axios.post(`/record/${customer.accno}`, {
-        recType: 1,
+        recType: 2,
         amount: depositAmount,
         date: date,
       }, {
@@ -68,17 +68,7 @@ const Deposit = ({ customer, setCustomer }) => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="date">Date of Deposit:</label>
-          <input
-            type="date"
-            id="date"
-            name="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            required
-          />
-        </div>
+
         <button type="submit">Deposit</button>
       </form>
       <h3>Current Balance: ${customer.balance}</h3>

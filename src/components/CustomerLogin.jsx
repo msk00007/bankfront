@@ -15,13 +15,14 @@ const CustomerLogin = ({ onLoggedinChange, onChangeUser, customer, setCustomer }
 
     try {
       // Make API call to fetch customer details by account number
-      const response = await axios.get(`/customerlogin/${accountNo}`);
+      const response = await axios.post(`/validateCustomer/${accountNo}/${password}`);
       
       // Assuming the response has the customer's data and password
       const customerData = response.data;
       console.log(customerData);
+      console.log(response.status);
 
-      if (customerData === password) {  // Ensure you check the password field
+      if (response.status===200) {  // Ensure you check the password field
         console.log('Customer login successful');
         alert('Login successful');
         onChangeUser({ role: 'customer' });
