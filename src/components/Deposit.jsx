@@ -20,7 +20,7 @@ const Deposit = ({ customer, setCustomer }) => {
     try {
       // Make API request to update the customer's balance on the server
       const response = await axios.post(`/record/${customer.accno}`, {
-        recType: 2,
+        recordType: 2,
         amount: depositAmount,
         date: date,
       }, {

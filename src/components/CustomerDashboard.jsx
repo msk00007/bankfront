@@ -187,7 +187,7 @@ const CustomerDashboard = ({ customer, setCustomer }) => {
       {records.map((record) => (
         <tr key={record.tid}>
           <td>{record.tid}</td>
-          <td>{record.recType === 1 ? "Withdraw" : "Deposit"}</td>
+          <td>{record.recordType === 1 ? "Withdraw" : "Deposit"}</td>
           <td>{record.amount}</td>
           <td>{record.time}</td>
         </tr>

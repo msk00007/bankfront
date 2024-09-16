@@ -14,8 +14,10 @@ const CustomerLogin = ({ onLoggedinChange, onChangeUser, customer, setCustomer }
     setError(null);  // Clear any previous errors
 
     try {
+
+      const encodedString = encodeURIComponent(password);
       // Make API call to fetch customer details by account number
-      const response = await axios.post(`/validateCustomer/${accountNo}/${password}`);
+      const response = await axios.post(`/validateCustomer/${accountNo}/${encodedString}`);
       
       // Assuming the response has the customer's data and password
       const customerData = response.data;

@@ -22,7 +22,7 @@ const Withdraw = ({ customer, setCustomer }) => {
     try {
       // Make API request to update the customer's balance on the server
       const response = await axios.post(`/record/${customer.accno}`, {
-        recType: 1,
+        recordType: 1,
         amount: withdrawAmount,
         date: date,
       }, {
