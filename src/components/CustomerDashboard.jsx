@@ -102,25 +102,8 @@ const CustomerDashboard = ({ customer, setCustomer }) => {
   return (
     <div className="dashboard-container">
       <h2>Customer Dashboard</h2>
+        <div className="flexContainer">
 
-          {/* Button to trigger change password */}
-          <div className="change-password-section">
-        <button onClick={() => setShowPasswordField(!showPasswordField)}>
-          {showPasswordField ? "Cancel" : "Change Password"}
-        </button>
-
-        {showPasswordField && (
-          <div className="password-change-form">
-            <input
-              type="password"
-              placeholder="Enter new password"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-            />
-            <button onClick={handlePasswordChange}>Submit</button>
-          </div>
-        )}
-      </div>
 
       
       {/* Display customer details */}
@@ -169,7 +152,26 @@ const CustomerDashboard = ({ customer, setCustomer }) => {
         </div>
       </div>
 
+          {/* Button to trigger change password */}
+          <div className="change-password-section">
+        <button onClick={() => setShowPasswordField(!showPasswordField)}>
+          {showPasswordField ? "Cancel" : "Change Password"}
+        </button>
 
+        {showPasswordField && (
+          <div className="password-change-form">
+            <input
+              type="password"
+              placeholder="Enter new password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
+            <button onClick={handlePasswordChange}>Submit</button>
+          </div>
+        )}
+      </div>
+
+      </div>
       {/* Display customer records */}
       <div className="records-list">
         <h3>Customer Records</h3>

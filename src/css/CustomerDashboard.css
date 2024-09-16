@@ -127,4 +127,16 @@
   .password-change-form button:hover {
     background-color: #0056b3;
   }
+  .flexContainer{
+    display: flex;
+    column-gap: 30px;
+  }
+  .customer-details{
+    flex-grow: 1;
+    width: 60%;
     
+  }
+  .change-password-section{
+    flex-grow: 1;
+    width: 50%;
+  }
